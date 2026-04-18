@@ -1,0 +1,24 @@
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Modelos entrenados (se montan como volumen, no se incluyen en la imagen)
+models/
+
+# Archivos de desarrollo
+demo.py
+README.md
+*.zip
+*.jpg
+*.png
+
+# Control de versiones
+.git/
+.gitignore

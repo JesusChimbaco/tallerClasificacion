@@ -1,0 +1,11 @@
+services:
+  image-classifier:
+    build: .
+    container_name: image-classifier-api
+    ports:
+      - "8000:8000"
+    volumes:
+      # Monta la carpeta models/ local en el contenedor
+      # Así los modelos entrenados persisten aunque el contenedor se reinicie
+      - ./models:/app/models
+    restart: unless-stopped
