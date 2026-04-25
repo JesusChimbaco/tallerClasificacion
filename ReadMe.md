@@ -4,10 +4,12 @@ Agente de inteligencia artificial integrado con Telegram, orquestado mediante **
 
 
 
-##  Arquitectura
+##  Diagrama de Componentes
 <img width="551" height="733" alt="imagen" src="https://github.com/user-attachments/assets/30aa135f-b0fa-4a1e-a980-63d591823d3b" />
 
 
+## Flujos del Workflow
+<img width="906" height="1103" alt="DriagramasAgenteBOT (1)" src="https://github.com/user-attachments/assets/caf9a287-f951-43aa-a910-f70fe317a882" />
 
 
 ### Flujo A — Entrenamiento
