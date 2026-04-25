@@ -5,7 +5,7 @@ Agente de inteligencia artificial integrado con Telegram, orquestado mediante **
 
 
 ##  Diagrama de Componentes
-<img width="551" height="733" alt="imagen" src="https://github.com/user-attachments/assets/30aa135f-b0fa-4a1e-a980-63d591823d3b" />
+<img width="865" height="1155" alt="WhatsApp Image 2026-04-24 at 8 46 22 PM (1)" src="https://github.com/user-attachments/assets/fb59909d-cd94-4c08-b4cf-9ec947877214" />
 
 
 ## Flujos del Workflow
