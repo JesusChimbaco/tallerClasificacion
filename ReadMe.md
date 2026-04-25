@@ -8,7 +8,7 @@ Agente de inteligencia artificial integrado con Telegram, orquestado mediante **
 <img width="551" height="733" alt="imagen" src="https://github.com/user-attachments/assets/30aa135f-b0fa-4a1e-a980-63d591823d3b" />
 
 
-```
+``
 
 ### Flujo A — Entrenamiento
 1. El usuario envía un archivo `.zip` con imágenes organizadas en subcarpetas (una por clase) y un nombre para el clasificador.
