@@ -31,7 +31,7 @@ Agente de inteligencia artificial integrado con Telegram, orquestado mediante **
 | Método | Ruta | Parámetros | Respuesta |
 |---|---|---|---|
 | `POST` | `/train` | `file` (.zip), `classifier_name` (string) | `{"classifier_name": "...", "accuracy": 0.95, "classes": [...]}` |
-| `POST` | `/classify` | `file` (imagen), `classifier_name` (string) | `{"prediction": "clase", "confidence": 0.87}` |
+| `POST` | `/predict` | `file` (imagen), `classifier_name` (string) | `{"prediction": "clase", "confidence": 0.87}` |
 | `GET` | `/health` | — | `{"status": "ok"}` |
 
 ---
