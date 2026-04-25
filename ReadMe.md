@@ -8,20 +8,21 @@ Agente de inteligencia artificial integrado con Telegram, orquestado mediante **
 <img width="551" height="733" alt="imagen" src="https://github.com/user-attachments/assets/30aa135f-b0fa-4a1e-a980-63d591823d3b" />
 
 
-``
+
 
 ### Flujo A — Entrenamiento
-1. El usuario envía un archivo `.zip` con imágenes organizadas en subcarpetas (una por clase) y un nombre para el clasificador.
-2. El AI Agent en n8n detecta la intención de entrenamiento y llama a la tool `POST /train`.
-3. FastAPI descomprime el `.zip`, extrae histogramas RGB de cada imagen con OpenCV y entrena un modelo de Regresión Logística con scikit-learn.
-4. El modelo se serializa con joblib en `/models/<nombre>.pkl`.
-5. El agente responde al usuario con el **accuracy** obtenido.
+1. El usuario envía al bot un archivo `.zip` con imágenes organizadas en subcarpetas (una por clase) y un nombre para el clasificador.
+2. El Telegram Trigger en n8n recibe el mensaje y los nodos HTTP de descarga obtienen el archivo desde los servidores de Telegram.
+3. El AI Agent + LLM detecta la intención de entrenamiento y llama a la HTTP tool `POST /train` a través del túnel ngrok.
+4. FastAPI descomprime el `.zip`, extrae histogramas RGB de cada imagen con OpenCV y entrena un modelo de Regresión Logística con scikit-learn.
+5. El modelo se serializa con joblib en `/models/<nombre>.pkl`.
+6. El agente responde al usuario con el **accuracy** obtenido vía Telegram reply.
 
 ### Flujo B — Clasificación
 1. El usuario envía una imagen y el nombre del clasificador a usar.
-2. El AI Agent llama a la tool `POST /classify`.
-3. FastAPI carga el modelo `.pkl`, extrae el histograma de la imagen y devuelve la predicción.
-4. El agente responde con la **clase predicha** y la **confianza**.
+2. Los nodos HTTP de descarga obtienen la imagen desde Telegram; el AI Agent llama a la HTTP tool `POST /classify`.
+3. FastAPI carga el modelo `.pkl`, extrae el histograma de color de la imagen y devuelve la predicción.
+4. El agente responde con la clase predicha y la confianza.
 
 ##  Endpoints de la API
 
