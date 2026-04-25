@@ -1,0 +1,13 @@
+{
+  "Aves": {
+    "classes": [
+      "pollosEngorde",
+      "gallinaPonedora"
+    ],
+    "model_path": "models/Aves.pkl",
+    "scaler_path": "models/Aves_scaler.pkl",
+    "num_images": 21,
+    "train_accuracy": 1.0,
+    "test_accuracy": 0.5
+  }
+}

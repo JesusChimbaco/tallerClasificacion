@@ -33,12 +33,21 @@ app = FastAPI(
 )
 
 def extract_histogram(image_bytes: bytes) -> np.ndarray:
+    """
+    Devuelve un vector de 96 dimensiones: 3 histogramas 1D separados
+    (canales B, G, R) con 32 bins cada uno, normalizados y concatenados.
+    """
     nparr = np.frombuffer(image_bytes, np.uint8)
     image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     if image is None:
         raise ValueError("No se pudo decodificar la imagen.")
-    hist = cv2.calcHist([image], [1, 2], None, [256, 256], [0, 256, 0, 256])
-    return np.hstack(cv2.merge([hist])).astype(np.float32)
+    image = cv2.resize(image, (128, 128))
+    histograms = []
+    for i in range(3):  # canales B, G, R
+        hist = cv2.calcHist([image], [i], None, [32], [0, 256])
+        hist = cv2.normalize(hist, hist).flatten()
+        histograms.append(hist)
+    return np.concatenate(histograms).astype(np.float32)
 
 
 def extract_histogram_from_path(path: str) -> np.ndarray:
